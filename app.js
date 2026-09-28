@@ -58,9 +58,7 @@ if (loginForm) {
     });
 }
 
-    });
 
-}
 function logout() {
 
     localStorage.removeItem("nivaraUser");
