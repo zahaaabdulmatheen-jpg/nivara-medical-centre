@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nivara - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                NIVARA
+            </div>
+
+            <div class="sidebar-subtitle">
+                Medical Centre
+            </div>
+
+            <nav>
+
+                <a class="active">Dashboard</a>
+
+                <a>Patients</a>
+
+                <a>Appointments</a>
+
+                <a>Doctors</a>
+
+                <a>Users</a>
+
+                <a>Prescriptions</a>
+
+                <a>Laboratory</a>
+
+                <a>Billing</a>
+
+                <a>Reports</a>
+
+            </nav>
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                Sign Out
+            </button>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Welcome back, Administrator
+                    </p>
+
+                </div>
+
+                <div class="user-badge">
+                    ADMIN
+                </div>
+
+            </header>
+
+
+            <section class="dashboard-content">
+
+                <h2>
+                    Today's Overview
+                </h2>
+
+
+                <div class="stats">
+
+                    <div class="stat-card">
+
+                        <span>
+                            Total Patients
+                        </span>
+
+                        <strong>
+                            124
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Today's Appointments
+                        </span>
+
+                        <strong>
+                            38
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Doctors
+                        </span>
+
+                        <strong>
+                            10
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            Today's Revenue
+                        </span>
+
+                        <strong>
+                            MVR 8,400
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>
+                                User Management
+                            </h2>
+
+                            <p>
+                                Create and manage Nivara staff accounts.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="primary-button"
+                            onclick="alert('User creation will be built next!')"
+                        >
+                            + Create User
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-section">
+
+                    <h2>
+                        Today's Appointments
+                    </h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Time</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>08:00 AM</td>
+                                <td>Aisha Ahmed</td>
+                                <td>Dr. Leena</td>
+                                <td>
+                                    <span class="status waiting">
+                                        Waiting
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>08:30 AM</td>
+                                <td>Hassan Ali</td>
+                                <td>Dr. Yunus</td>
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>09:00 AM</td>
+                                <td>Mariyam Adam</td>
+                                <td>Dr. Leena</td>
+                                <td>
+                                    <span class="status booked">
+                                        Booked
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
