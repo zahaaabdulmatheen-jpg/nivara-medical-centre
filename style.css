@@ -464,3 +464,18 @@ td {
     }
 
 }
+.primary-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: none;
+    background: var(--navy);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.primary-button:hover {
+    background: var(--navy-light);
+}
