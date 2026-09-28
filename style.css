@@ -1,42 +1,64 @@
+:root {
+    --navy: #102A43;
+    --navy-light: #243B53;
+    --beige: #F5EFE3;
+    --cream: #FAF8F3;
+    --gold: #C7A86B;
+    --text: #24323D;
+    --muted: #6B7280;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef5f1;
-    color: #24483d;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--beige);
+    color: var(--text);
 }
 
 .container {
-    text-align: center;
-    padding-top: 150px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--beige);
 }
 
-h1 {
+.logo {
+    color: var(--navy);
     font-size: 52px;
-    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 0;
 }
 
-h2 {
-    font-size: 28px;
-    font-weight: normal;
+.subtitle {
+    color: var(--navy-light);
+    font-size: 22px;
     margin-top: 5px;
 }
 
-p {
-    color: #66756f;
-    font-size: 18px;
+.tagline {
+    color: var(--muted);
+    margin-top: 10px;
 }
 
 button {
     margin-top: 30px;
-    padding: 14px 35px;
+    padding: 14px 40px;
     border: none;
-    border-radius: 8px;
-    background: #397a65;
-    color: white;
+    border-radius: 6px;
+    background: var(--navy);
+    color: var(--white);
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #2d624f;
+    background: var(--navy-light);
 }
