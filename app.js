@@ -2,82 +2,61 @@ function goToLogin() {
     window.location.href = "login.html";
 }
 
-
 /* =========================
-   DEMO LOGIN SYSTEM
-========================= */
-
-const demoUsers = [
-    {
-        username: "admin",
-        password: "admin123",
-        role: "admin",
-        name: "Nivara Administrator"
-    },
-
-    {
-        username: "drleena",
-        password: "doctor123",
-        role: "doctor",
-        name: "Dr. Leena"
-    }
-];
-
+   SUPABASE LOGIN SYSTEM
+   ========================= */
 
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-
-    loginForm.addEventListener("submit", function(event) {
-
+    loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const username =
-            document.getElementById("username").value.trim();
+        const email = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("loginMessage");
 
-        const password =
-            document.getElementById("password").value;
+        message.textContent = "Signing in...";
+        message.style.color = "#315D49";
 
-        const message =
-            document.getElementById("loginMessage");
-
-
-        const user = demoUsers.find(function(account) {
-
-            return (
-                account.username === username &&
-                account.password === password
-            );
-
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
         });
 
+        if (error) {
+            message.textContent = "Invalid email or password.";
+            message.style.color = "#A33A3A";
+            return;
+        }
 
-        if (user) {
+        const { data: profile, error: profileError } = await supabase
+            .from("profiles")
+            .select("*")
+            .eq("id", data.user.id)
+            .single();
 
-            localStorage.setItem(
-                "nivaraUser",
-                JSON.stringify(user)
-            );
-
-
-            if (user.role === "admin") {
-
-                window.location.href = "admin.html";
-
-            } else if (user.role === "doctor") {
-
-                window.location.href = "doctor.html";
-
-            }
-
-        } else {
-
-            message.textContent =
-                "Incorrect username or password.";
-
+        if (profileError || !profile) {
+            message.textContent = "Your account profile could not be found.";
             message.style.color = "#A33A3A";
 
+            await supabase.auth.signOut();
+            return;
         }
+
+        localStorage.setItem(
+            "nivaraUser",
+            JSON.stringify(profile)
+        );
+
+        if (profile.role === "Administrator") {
+            window.location.href = "admin.html";
+        } else {
+            message.textContent = "Your account is not assigned to a system dashboard yet.";
+            message.style.color = "#A33A3A";
+        }
+    });
+}
 
     });
 
