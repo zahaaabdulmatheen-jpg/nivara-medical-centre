@@ -82,3 +82,10 @@ if (loginForm) {
     });
 
 }
+function logout() {
+
+    localStorage.removeItem("nivaraUser");
+
+    window.location.href = "index.html";
+
+}
