@@ -353,7 +353,7 @@ if (createUserForm) {
 }
 
 const SUPABASE_URL = "https://ubeqncqjywcgzvpoizz.supabase.co";
-const SUPABASE_KEY = sb_publishable_OpJOCLf66koWUbQO0stmHA_036yJFG9;
+const SUPABASE_KEY = "sb_publishable_OpJOCLf66koWUbQO0stmHA_036yJFG9";
 
 const supabase = window.supabase.createClient(
     SUPABASE_URL,
