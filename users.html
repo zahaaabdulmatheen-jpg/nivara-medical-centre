@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nivara - User Management</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            NIVARA
+        </div>
+
+        <div class="sidebar-subtitle">
+            Medical Centre
+        </div>
+
+        <nav>
+
+            <a href="admin.html">
+                Dashboard
+            </a>
+
+            <a>
+                Patients
+            </a>
+
+            <a>
+                Appointments
+            </a>
+
+            <a>
+                Doctors
+            </a>
+
+            <a class="active">
+                Users
+            </a>
+
+            <a>
+                Prescriptions
+            </a>
+
+            <a>
+                Laboratory
+            </a>
+
+            <a>
+                Billing
+            </a>
+
+            <a>
+                Reports
+            </a>
+
+        </nav>
+
+        <button
+            class="logout-button"
+            onclick="logout()"
+        >
+            Sign Out
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    User Management
+                </h1>
+
+                <p>
+                    Create and manage Nivara staff accounts.
+                </p>
+
+            </div>
+
+            <div class="user-badge">
+                ADMIN
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-content">
+
+
+            <!-- CREATE USER -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Create New User
+                        </h2>
+
+                        <p>
+                            Add a staff member to the Nivara system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="createUserForm"
+                      class="user-form">
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newUserName"
+                                placeholder="e.g. Dr. Leena Hassan"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newUsername"
+                                placeholder="e.g. leena.hassan"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                placeholder="Create a password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Role
+                            </label>
+
+                            <select
+                                id="newUserRole"
+                                required
+                            >
+
+                                <option value="">
+                                    Select role
+                                </option>
+
+                                <option value="doctor">
+                                    Doctor
+                                </option>
+
+                                <option value="receptionist">
+                                    Receptionist
+                                </option>
+
+                                <option value="pharmacist">
+                                    Pharmacist
+                                </option>
+
+                                <option value="lab">
+                                    Laboratory Staff
+                                </option>
+
+                                <option value="admin">
+                                    Administrator
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DOCTOR INFORMATION -->
+
+                    <div
+                        id="doctorFields"
+                        class="doctor-fields"
+                        style="display: none;"
+                    >
+
+                        <h3>
+                            Doctor Information
+                        </h3>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Doctor ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="doctorId"
+                                    placeholder="e.g. DOC-001"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Department
+                                </label>
+
+                                <select id="department">
+
+                                    <option value="">
+                                        Select department
+                                    </option>
+
+                                    <option>
+                                        General Medicine
+                                    </option>
+
+                                    <option>
+                                        Dermatology
+                                    </option>
+
+                                    <option>
+                                        Cardiology
+                                    </option>
+
+                                    <option>
+                                        Pediatrics
+                                    </option>
+
+                                    <option>
+                                        ENT
+                                    </option>
+
+                                    <option>
+                                        Orthopedics
+                                    </option>
+
+                                    <option>
+                                        Gynecology
+                                    </option>
+
+                                    <option>
+                                        Neurology
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Specialization
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="specialization"
+                                    placeholder="e.g. Dermatologist"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create User
+                    </button>
+
+
+                    <p id="userMessage"></p>
+
+                </form>
+
+            </div>
+
+
+            <!-- USERS TABLE -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Staff Accounts
+                        </h2>
+
+                        <p>
+                            Current Nivara system users.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Username
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Department
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="usersTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
