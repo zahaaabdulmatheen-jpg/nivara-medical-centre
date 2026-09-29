@@ -1,7 +1,17 @@
 function goToLogin() {
     window.location.href = "login.html";
 }
+const SUPABASE_URL = "https://ubeqncqjywcgzvpoizz.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
 
+let supabase = null;
+
+if (window.supabase) {
+    supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+}
 /* =========================
    SUPABASE LOGIN SYSTEM
    ========================= */
