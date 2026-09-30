@@ -4,10 +4,10 @@ function goToLogin() {
 const SUPABASE_URL = "https://ubeqncqjywcgzvpoizz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_OpJOCLf66koWUbQO0stmHA_036yJFG9";
 
-let supabase = null;
+let supabaseClient = null;
 
 if (window.supabase) {
-    supabase = window.supabase.createClient(
+    supabaseClient = window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
     );
