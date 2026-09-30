@@ -2,7 +2,7 @@ function goToLogin() {
     window.location.href = "login.html";
 }
 const SUPABASE_URL = "https://ubeqncqjywcgzvpoizz.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+const SUPABASE_KEY = "sb_publishable_OpJOCLf66koWUbQO0stmHA_036yJFG9";
 
 let supabase = null;
 
