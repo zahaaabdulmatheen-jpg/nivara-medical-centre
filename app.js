@@ -29,7 +29,7 @@ if (loginForm) {
         message.textContent = "Signing in...";
         message.style.color = "#315D49";
 
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
             email: email,
             password: password
         });
