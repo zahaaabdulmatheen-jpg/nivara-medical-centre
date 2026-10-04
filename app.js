@@ -339,3 +339,25 @@ if (createUserForm) {
 
 }
 
+// ADMIN DASHBOARD PROTECTION
+
+if (window.location.pathname.endsWith("admin.html")) {
+    supabaseClient.auth.getSession().then(async ({ data }) => {
+
+        if (!data.session) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        const { data: profile, error } = await supabaseClient
+            .from("profiles")
+            .select("role")
+            .eq("id", data.session.user.id)
+            .single();
+
+        if (error || !profile || profile.role !== "Administrator") {
+            await supabaseClient.auth.signOut();
+            window.location.href = "login.html";
+        }
+    });
+}
