@@ -40,7 +40,7 @@ if (loginForm) {
             return;
         }
 
-        const { data: profile, error: profileError } = await supabase
+        const { data: profile, error: profileError } = await supabaseClient
             .from("profiles")
             .select("*")
             .eq("id", data.user.id)
