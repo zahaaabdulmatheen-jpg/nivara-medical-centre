@@ -1,7 +1,7 @@
 function goToLogin() {
     window.location.href = "login.html";
 }
-const SUPABASE_URL = "https://ubeqncqjycwcgzvpoizz.supabase";
+const SUPABASE_URL = "https://ubeqncqjycwcgzvpoizz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_OpJOCLf66koWUbQO0stmHA_036yJFG9";
 
 let supabaseClient = null;
