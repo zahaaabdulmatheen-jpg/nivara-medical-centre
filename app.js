@@ -361,3 +361,15 @@ if (window.location.pathname.endsWith("admin.html")) {
         }
     });
 }
+
+// LOAD TOTAL PATIENTS
+
+if (window.location.pathname.endsWith("admin.html")) {
+    const { count, error } = await supabaseClient
+        .from("patients")
+        .select("*", { count: "exact", head: true });
+
+    if (!error) {
+        document.getElementById("totalPatients").textContent = count;
+    }
+}
