@@ -365,6 +365,10 @@ if (window.location.pathname.endsWith("admin.html")) {
 // LOAD TOTAL PATIENTS
 
 if (window.location.pathname.endsWith("admin.html")) {
+    loadTotalPatients();
+}
+
+async function loadTotalPatients() {
     const { count, error } = await supabaseClient
         .from("patients")
         .select("*", { count: "exact", head: true });
